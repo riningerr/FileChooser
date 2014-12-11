@@ -19,6 +19,19 @@ public class Person implements Serializable {
 	public Person() {
 	}
 	
+	// Setters
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+	
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+	
+	public void setAge(int age) {
+		this.age = age;
+	}
+	
 	// Getters
 	public String getFirstName() {
 		return(this.firstName);

@@ -1,9 +1,82 @@
+import java.awt.*;
+import java.awt.event.*;
 import java.util.ArrayList;
 
+import javax.swing.*;
 
-public class MyProgram {
+
+public class MyProgram extends JFrame implements ActionListener{
+
+	private static final long serialVersionUID = 1L;
 
 	public static void main(String[] args) {
+		
+		/*****************
+	    * Create the GUI *
+	    ******************/
+		
+		// Create new frame
+		JFrame mainWindow = new JFrame();
+		mainWindow.setTitle("My Program");
+		mainWindow.setSize(800, 600);
+		mainWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		mainWindow.setVisible(true);
+		
+
+		// Create panel for main window
+		JPanel mainPanel = new JPanel(new BorderLayout());
+		JPanel menuPanel = new JPanel(new BorderLayout());
+
+		
+		// Add panels to container
+		Container pane = mainWindow.getContentPane();
+		pane.add(mainPanel, BorderLayout.CENTER);
+		pane.add(menuPanel, BorderLayout.NORTH);
+		
+		// Create MenuBar
+		JMenuBar menuBar = new JMenuBar();
+		
+		// Create Menu
+		JMenu fileMenu = new JMenu("File");
+		fileMenu.setMnemonic(KeyEvent.VK_F);
+		
+		// Create Menu Items
+		JMenuItem save = new JMenuItem("Save");
+		JMenuItem saveAs = new JMenuItem("Save As");
+		JMenuItem open = new JMenuItem("Open");
+
+		// Add Menu Items to File Menu
+		fileMenu.add(open);
+		fileMenu.add(save);
+		fileMenu.add(saveAs);
+		
+		// Add File Menu to menuBar
+		menuBar.add(fileMenu);
+		menuPanel.add(menuBar);
+		
+		// Action Listener for "Open" menu item
+		open.addActionListener(new ActionListener() {
+			
+			public void actionPerformed(ActionEvent e) {
+				// Add File Open Method Here
+			}
+		});
+		
+		// Action Listener for "Save" menu item
+		save.addActionListener(new ActionListener() {
+
+			public void actionPerformed(ActionEvent e) {
+				// Add File Save Method Here
+			}
+		});
+		
+		// Add Action Listener for "Save As" menu item
+		saveAs.addActionListener(new ActionListener() {
+			
+			public void actionPerformed(ActionEvent e) {
+				FileSave.saveFile(this);
+			}
+		});
 		
 		
 		/*******************************************
@@ -36,9 +109,12 @@ public class MyProgram {
 		pplVar = aList.get(1);
 		
 		System.out.println("Second Element is: " + pplVar.getFirstName() + " " + pplVar.getLastName() + " " + pplVar.getAge());
-		
-		// Attempt to save arrayList Object
-		FileSave.saveFile(aList);
+
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
 		
 	}
 }

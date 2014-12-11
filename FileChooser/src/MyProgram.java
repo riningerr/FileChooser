@@ -37,6 +37,8 @@ public class MyProgram {
 		
 		System.out.println("Second Element is: " + pplVar.getFirstName() + " " + pplVar.getLastName() + " " + pplVar.getAge());
 		
+		// Attempt to save arrayList Object
+		FileSave.saveFile(aList);
 		
 	}
 }

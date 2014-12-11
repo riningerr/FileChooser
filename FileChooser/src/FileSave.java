@@ -6,6 +6,8 @@ import java.io.ObjectOutputStream;
 
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
+import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
 
 
 public class FileSave {
@@ -14,14 +16,28 @@ public class FileSave {
 	/**************************************************
 	* Use JFileChooser to get File Name and Directory *
 	***************************************************/
+	
 	public static void saveFile(Object obj) {
+		
 		// Create the main "save" window
 		JFrame myWindow = new JFrame();
-		//Create the filechooser
+		
+		// Set style to current system being used
+		try {
+			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+		} catch (ClassNotFoundException | InstantiationException
+				| IllegalAccessException | UnsupportedLookAndFeelException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		
+		// Create filechooser
 		JFileChooser fChooser = new JFileChooser();
 		fChooser.setDialogTitle("Save As");
 	
+		// Variable to store user selection
 		int selection = fChooser.showSaveDialog(myWindow);
+		
 		// Only if user selects "Save"
 		if(selection == JFileChooser.APPROVE_OPTION) {
 			File saveThisFile = fChooser.getSelectedFile();
@@ -33,10 +49,9 @@ public class FileSave {
 			/*************************
 			 * Actually Save the File * 
 			 **************************/
-		
-			String fileName = saveThisFile.getName();
+
 			try {
-				FileOutputStream fileOut = new FileOutputStream(fileName);
+				FileOutputStream fileOut = new FileOutputStream(saveThisFile);
 				ObjectOutputStream objectOut = new ObjectOutputStream(fileOut);
 				objectOut.writeObject(obj);
 				// Close the output stream

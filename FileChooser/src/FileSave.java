@@ -8,6 +8,7 @@ import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
+import javax.swing.filechooser.FileNameExtensionFilter;
 
 
 public class FileSave {
@@ -34,6 +35,9 @@ public class FileSave {
 		// Create filechooser
 		JFileChooser fChooser = new JFileChooser();
 		fChooser.setDialogTitle("Save As");
+		FileNameExtensionFilter binType = new FileNameExtensionFilter("Binary File (.bin)", "bin");
+		fChooser.addChoosableFileFilter(binType);
+		fChooser.setFileFilter(binType);
 	
 		// Variable to store user selection
 		int selection = fChooser.showSaveDialog(myWindow);
@@ -42,14 +46,20 @@ public class FileSave {
 		if(selection == JFileChooser.APPROVE_OPTION) {
 			File saveThisFile = fChooser.getSelectedFile();
 			
+			//Ensure file has correct .bin extension
+			String filePath = saveThisFile.getAbsolutePath();
+			if(!filePath.endsWith(".bin")) {
+				saveThisFile = new File(filePath + ".bin");
+			}
+			
 			// Print the file name and directory to the console (debugging)
-			System.out.println("File Directory: " + saveThisFile.getAbsolutePath());
-			System.out.println("Name of File: "+saveThisFile.getName());
+			//System.out.println("File Directory: " + saveThisFile.getAbsolutePath());
+			//System.out.println("Name of File: "+saveThisFile.getName());
 		
 			/*************************
 			 * Actually Save the File * 
 			 **************************/
-
+			System.out.println("Saving File...");
 			try {
 				FileOutputStream fileOut = new FileOutputStream(saveThisFile);
 				ObjectOutputStream objectOut = new ObjectOutputStream(fileOut);
@@ -63,6 +73,7 @@ public class FileSave {
 			catch (IOException e) {
 				e.printStackTrace();
 			}
+			System.out.println("Finished Saving File");
 		}
 	}
 }

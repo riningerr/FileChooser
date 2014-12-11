@@ -58,9 +58,12 @@ public class FileChooser {
 			File saveThisFile = fChooser.getSelectedFile();
 			
 			// Print the file name and directory to the console (debugging)
-			System.out.println("Save As File" + saveThisFile.getAbsolutePath());
+			System.out.println("File Directory: " + saveThisFile.getAbsolutePath());
+			System.out.println("Name of File: "+saveThisFile.getName());
 		}
 		
-		
+		/*************************
+		* Actually Save the File * 
+	    **************************/
 	}
 }

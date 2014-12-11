@@ -11,7 +11,7 @@ public class FileSave {
 	* Use JFileChooser to get File Name and Directory *
 	***************************************************/
 	
-	public static void saveFile(Object obj) {
+	public static void save(Object obj) {
 		
 		// Create the main "save" window
 		JFrame myWindow = new JFrame();

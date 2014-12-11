@@ -74,7 +74,7 @@ public class MyProgram extends JFrame implements ActionListener{
 		saveAs.addActionListener(new ActionListener() {
 			
 			public void actionPerformed(ActionEvent e) {
-				FileSave.saveFile(this);
+				FileSave.save(this);
 			}
 		});
 		

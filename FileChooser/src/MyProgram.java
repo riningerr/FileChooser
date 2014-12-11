@@ -1,7 +1,6 @@
 import java.awt.*;
 import java.awt.event.*;
 import java.util.ArrayList;
-
 import javax.swing.*;
 
 
@@ -27,7 +26,6 @@ public class MyProgram extends JFrame implements ActionListener{
 		JPanel mainPanel = new JPanel(new BorderLayout());
 		JPanel menuPanel = new JPanel(new BorderLayout());
 
-		
 		// Add panels to container
 		Container pane = mainWindow.getContentPane();
 		pane.add(mainPanel, BorderLayout.CENTER);
@@ -53,31 +51,6 @@ public class MyProgram extends JFrame implements ActionListener{
 		// Add File Menu to menuBar
 		menuBar.add(fileMenu);
 		menuPanel.add(menuBar);
-		
-		// Action Listener for "Open" menu item
-		open.addActionListener(new ActionListener() {
-			
-			public void actionPerformed(ActionEvent e) {
-				// Add File Open Method Here
-			}
-		});
-		
-		// Action Listener for "Save" menu item
-		save.addActionListener(new ActionListener() {
-
-			public void actionPerformed(ActionEvent e) {
-				// Add File Save Method Here
-			}
-		});
-		
-		// Add Action Listener for "Save As" menu item
-		saveAs.addActionListener(new ActionListener() {
-			
-			public void actionPerformed(ActionEvent e) {
-				FileSave.save(this);
-			}
-		});
-		
 		
 		/*******************************************
 		* INSTANTIATE OBJECTS AND CREATE ARRAYLIST *
@@ -109,7 +82,30 @@ public class MyProgram extends JFrame implements ActionListener{
 		pplVar = aList.get(1);
 		
 		System.out.println("Second Element is: " + pplVar.getFirstName() + " " + pplVar.getLastName() + " " + pplVar.getAge());
+	
+		// Action Listener for "Open" menu item
+		open.addActionListener(new ActionListener() {
+			
+			public void actionPerformed(ActionEvent e) {
+				// Add File Open Method Here
+			}
+		});
+		
+		// Action Listener for "Save" menu item
+		save.addActionListener(new ActionListener() {
 
+			public void actionPerformed(ActionEvent e) {
+				// Add File Save Method Here
+			}
+		});
+		
+		// Add Action Listener for "Save As" menu item
+		saveAs.addActionListener(new ActionListener() {
+			
+			public void actionPerformed(ActionEvent e) {
+				FileSave.save(aList);
+			}
+		});
 	}
 
 	@Override

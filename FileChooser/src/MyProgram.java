@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 
 
-public class FileChooser {
+public class MyProgram {
 
 	public static void main(String[] args) {
 		

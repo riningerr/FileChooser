@@ -4,14 +4,14 @@ import javax.swing.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
 
-public class FileSave {
+public class FileSaveAs {
 
 	
 	/**************************************************
 	* Use JFileChooser to get File Name and Directory *
 	***************************************************/
 	
-	public static void save(Object obj) {
+	public static void saveAs(Object obj) {
 		
 		// Create the main "save" window
 		JFrame myWindow = new JFrame();

@@ -74,14 +74,15 @@ public class MyProgram extends JFrame implements ActionListener{
 		aList.add(A);
 		aList.add(B);
 		aList.add(C);
+		
 		// Check size of arrayList (debugging)
 		//System.out.println("Size of array list is " + aList.size());
 		
 		// Test accessing second element in ArrayList
-		Person pplVar = new Person();
-		pplVar = aList.get(1);
+		//Person pplVar = new Person();
+		//pplVar = aList.get(1);
 		
-		System.out.println("Second Element is: " + pplVar.getFirstName() + " " + pplVar.getLastName() + " " + pplVar.getAge());
+		//System.out.println("Second Element is: " + pplVar.getFirstName() + " " + pplVar.getLastName() + " " + pplVar.getAge());
 	
 		// Action Listener for "Open" menu item
 		open.addActionListener(new ActionListener() {
@@ -103,7 +104,7 @@ public class MyProgram extends JFrame implements ActionListener{
 		saveAs.addActionListener(new ActionListener() {
 			
 			public void actionPerformed(ActionEvent e) {
-				FileSave.save(aList);
+				FileSaveAs.saveAs(aList);
 			}
 		});
 	}

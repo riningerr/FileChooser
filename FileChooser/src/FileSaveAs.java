@@ -59,6 +59,7 @@ public class FileSaveAs {
 				objectOut.writeObject(obj);
 				// Close the output stream
 				objectOut.close();
+				System.out.println("Finished Saving File");
 			}
 			catch (FileNotFoundException e) {
 				e.printStackTrace();
@@ -66,7 +67,6 @@ public class FileSaveAs {
 			catch (IOException e) {
 				e.printStackTrace();
 			}
-			System.out.println("Finished Saving File");
 		}
 	}
 }

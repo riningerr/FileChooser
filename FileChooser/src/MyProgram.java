@@ -88,7 +88,7 @@ public class MyProgram extends JFrame implements ActionListener{
 		open.addActionListener(new ActionListener() {
 			
 			public void actionPerformed(ActionEvent e) {
-				// Add File Open Method Here
+				FileOpen.open();
 			}
 		});
 		

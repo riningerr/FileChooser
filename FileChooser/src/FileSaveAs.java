@@ -1,11 +1,8 @@
 import java.io.*;
-
 import javax.swing.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
-
 public class FileSaveAs {
-
 	
 	/**************************************************
 	* Use JFileChooser to get File Name and Directory *

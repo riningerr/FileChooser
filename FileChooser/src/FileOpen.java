@@ -1,13 +1,10 @@
 import java.io.*;
 import java.util.*;
-
 import javax.swing.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
-
 public class FileOpen {
 
-	
 	/**************************************************
 	* Use JFileChooser to get File Name and Directory *
 	***************************************************/
@@ -40,18 +37,8 @@ public class FileOpen {
 		if(selection == JFileChooser.APPROVE_OPTION) {
 			File openThisFile = fChooser.getSelectedFile();
 			
-//			//Ensure file has correct .bin extension
-//			String filePath = openThisFile.getAbsolutePath();
-//			if(!filePath.endsWith(".bin")) {
-//				openThisFile = new File(filePath + ".bin");
-//			}
-			
-			// Print the file name and directory to the console (debugging)
-			//System.out.println("File Directory: " + saveThisFile.getAbsolutePath());
-			//System.out.println("Name of File: "+saveThisFile.getName());
-		
 			/*************************
-			 * Actually Save the File * 
+			 * Actually Open the File * 
 			 **************************/
 			System.out.println("Opening File...");
 			try {
@@ -67,14 +54,11 @@ public class FileOpen {
 				System.out.println("Finished Opening File");
 				
 				// DO STUFF WITH THE FILE
-				
 				Person pplVar = new Person();
 				for(int i = 0; i < fileOpened.size(); i++) {
 					pplVar = fileOpened.get(i);
 					System.out.println("Name: " + pplVar.getFirstName() + " " + pplVar.getLastName() + "; Age: " + pplVar.getAge());
 				}
-				
-				
 			}
 			catch (ClassNotFoundException e) {
 				e.printStackTrace();
